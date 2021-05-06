@@ -1,1 +1,36 @@
-Hii This is Backend start.
+Extra SignUp Fields.
+
+
+//SignUp
+User Point of view :
+
+**Email
+**Password
+**Name
+**PhoneNumber
+
+
+Office Employee:
+
+**Email
+**OfficeId
+**Password
+**Name
+**PhoneNumber
+
+
+//SignIn
+
+User Point of view
+**Email
+**Password
+
+
+
+Office Employee
+**Email
+**Password
+
+
+
+=>User not logged in Hash will not Come.

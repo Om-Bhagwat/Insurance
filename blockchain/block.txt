@@ -1,1 +1,16 @@
-Hii This is blockchain start.
+User=>Homepage=>
+    Claim Auto insurance(Click)=>
+    Mongodb generates and stores a hash accross him.=>
+    Hash will be retireived by me and the data will be coupled with phase details and posted on blockchain.
+
+
+User=>Just to see homepage=>
+        Homepage par blockchain se data fetch karlenge all phase details along with hash.=>
+        Infographs.
+
+
+
+
+
+
+
