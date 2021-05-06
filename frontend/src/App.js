@@ -13,6 +13,11 @@ function App() {
   const [emailerr,setEmailErr] = useState('');
   const [passworderr, setPasswordErr] = useState('');
   const [hasAccount,sethasAccount]=useState(false);
+  const[name,setName] = useState('');
+  const[ph_number,setPhone] = useState('');
+  const[empID,setEmpoyeeId] = useState('');
+  const[isCustomer,setCustomer] = useState(true);
+  const[isEmployee,setEmployee] = useState(false);
 
 
   //*Use to clear the inputs
@@ -100,7 +105,7 @@ function App() {
          <Router>
            {/* Takes to homepage with Navbar. */}
               <Route path="/" exact render={(props)=>(
-                <Homepage  handleLogout={handleLogout}/>
+                <Homepage {...props}  handleLogout={handleLogout} name={name} isCustomer={isCustomer} isEmployee={isEmployee} />
               )} />
         </Router>
     ):(
@@ -115,6 +120,16 @@ function App() {
       sethasAccount={sethasAccount}
       emailerr={emailerr}
       passworderr={passworderr}
+      name = {name}
+      setName = {setName}
+      ph_number = {ph_number}
+      setPhone = {setPhone}
+      empID = {empID}
+      setEmpoyeeId = {setEmpoyeeId}
+      isCustomer = {isCustomer}
+      setCustomer = {setCustomer}
+      isEmployee = {isEmployee}
+      setEmployee = {setEmployee}
       />
     )}
   </div>
