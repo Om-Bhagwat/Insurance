@@ -5,27 +5,27 @@ const mongoose = require('mongoose')
 
 
 
-const userSchema = new mongoose.Schema({
-    
+const graphSchema = new mongoose.Schema({
+
     name: {
         type: String,
-        
+
     },
     email: {
         type: String,
-        
+
     },
-    password:{
+    hash:{
         type: String,
-        
+
     },
-    number:{
-        type:String,
-        
+    phasecount:{
+        type:Number,
+
     }
 })
 
 
-const user = mongoose.model('user',userSchema)
+const graph = mongoose.model('graph',graphSchema)
 
-module.exports = user
+module.exports = graph

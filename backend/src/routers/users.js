@@ -1,6 +1,7 @@
 const express = require('express')
 const user = require('../models/user')
 const employee =require('../models/employee')
+const graph =require('../models/graph')
 // const comment=require('../models/comment')
 // const data=require('../models/data')
 // const auth = require('../middleware/auth')
@@ -88,6 +89,44 @@ router.post('/users/getempdetail', async (req, res) => {
     }
 })
 
+
+// route to add graph
+router.post('/users/addgraph', async (req, res) => {
+
+ 
+
+    const graph1 = new graph(req.body)
+
+    try {
+        await graph1.save()
+
+
+
+
+        res.status(201).send({ graph1 })
+    } catch (e) {
+
+        res.status(400).send(e)
+    }
+
+})
+
+
+
+
+
+//route to get graph detail by his email
+router.post('/users/getgraph', async (req, res) => {
+
+    try {
+        const graph1= await graph.find({ email: req.body.email })
+
+
+        res.send({ graph1})
+    } catch (e) {
+        res.status(400).send()
+    }
+})
 
 
 
