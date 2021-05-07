@@ -57,6 +57,8 @@ function App() {
           }
       });
 
+      //!Do not Change Below Code Ask (@Om-Bhagwat).
+      //*Sends the Name,Phone number to mongodb.
       if(isCustomer){
         try{
               const resp = await axios.post('http://localhost:5000/users/getdetail',{
@@ -101,6 +103,10 @@ function App() {
           }
       });
 
+
+      //!Do not change the below code Ask (@Om-Bhagwat).
+      //*Retrives the name from the backend for now.
+      //Todo: More data Required??.
       try{
           const response = await axios.post('http://localhost:5000/users/adduser',{
               name,
