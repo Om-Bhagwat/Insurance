@@ -108,6 +108,10 @@ function App() {
       //*Retrives the name from the backend for now.
       //Todo: More data Required??.
       try{
+        console.log(name);
+        console.log(email);
+        console.log(password);
+        console.log(ph_number);
           const response = await axios.post('http://localhost:5000/users/adduser',{
               name,
               email,
@@ -144,37 +148,37 @@ function App() {
 
   return (
     <div>
-    {user?(
          <Router>
            {/* Takes to homepage with Navbar. */}
               <Route path="/" exact render={(props)=>(
-                <Homepage {...props}  handleLogout={handleLogout} name={name} isCustomer={isCustomer} isEmployee={isEmployee} />
+                <Homepage {...props} user={user} handleLogout={handleLogout} name={name} isCustomer={isCustomer} isEmployee={isEmployee} />
+              )} />
+              <Route path="/login" exact render={(props)=>(
+                <Login 
+                {...props}
+                email={email} 
+                setEmail={setEmail} 
+                password={password} 
+                setPassword={setPassword} 
+                handleLogin={handleLogin} 
+                handleSignup={handleSignup} 
+                hasAccount={hasAccount}
+                sethasAccount={sethasAccount}
+                emailerr={emailerr}
+                passworderr={passworderr}
+                name = {name}
+                setName = {setName}
+                ph_number = {ph_number}
+                setPhone = {setPhone}
+                empID = {empID}
+                setEmpoyeeId = {setEmpoyeeId}
+                isCustomer = {isCustomer}
+                setCustomer = {setCustomer}
+                isEmployee = {isEmployee}
+                setEmployee = {setEmployee}
+                />
               )} />
         </Router>
-    ):(
-      <Login 
-      email={email} 
-      setEmail={setEmail} 
-      password={password} 
-      setPassword={setPassword} 
-      handleLogin={handleLogin} 
-      handleSignup={handleSignup} 
-      hasAccount={hasAccount}
-      sethasAccount={sethasAccount}
-      emailerr={emailerr}
-      passworderr={passworderr}
-      name = {name}
-      setName = {setName}
-      ph_number = {ph_number}
-      setPhone = {setPhone}
-      empID = {empID}
-      setEmpoyeeId = {setEmpoyeeId}
-      isCustomer = {isCustomer}
-      setCustomer = {setCustomer}
-      isEmployee = {isEmployee}
-      setEmployee = {setEmployee}
-      />
-    )}
   </div>
   );
 }

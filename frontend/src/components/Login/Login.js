@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './Login.css';
 
 const Login = (props)=> {
@@ -93,12 +94,12 @@ const Login = (props)=> {
                                         <div className="btnContainer">
                                             {hasAccount?(
                                                 <>
-                                                    <button onClick={handleLogin}>Sign In</button>
+                                                    <button onClick={handleLogin}><Link to="/">Sign up</Link></button>
                                                     <p>Don't have an account ?<span onClick={()=>sethasAccount(!hasAccount)}>Sign up</span></p>
                                                 </>
                                             ):(
                                                 <>
-                                                    <button onClick={handleSignup}>Sign Up</button>
+                                                    <button onClick={handleSignup}><Link to="/">Sign Up</Link></button>
                                                     <p>Have an Account ?<span onClick={()=>sethasAccount(!hasAccount)}>Sign in</span></p>
                                                 </>
                                             )}
@@ -140,7 +141,7 @@ const Login = (props)=> {
                                         />
                                     <p className="errorMsg">{passworderr}</p>
                                     <div className="btnContainer">
-                                        <button onClick={handleLogin}>Sign In</button>
+                                        <button onClick={handleLogin}><Link to="/">Sign in</Link></button>
                                     </div>
                                 </div>
                             </section>

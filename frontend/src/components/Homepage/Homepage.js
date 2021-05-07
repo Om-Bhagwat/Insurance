@@ -1,5 +1,5 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const Homepage=(props)=>{
 
@@ -7,6 +7,7 @@ const Homepage=(props)=>{
     //*Navbar can be Edited from here.
 
     const {
+            user,
             handleLogout,
             name,
             isCustomer,
@@ -14,22 +15,38 @@ const Homepage=(props)=>{
         } = props;
 
     return (
-        <section className="hero">
-                <nav>
-                    <h2>Welcome</h2>
-                    <h4>{name}</h4>
-                    {isCustomer?(
-                        <>
-                            Hii Customer
+            <>
+                    {user?(
+                        <>  
+                            <section className="hero">
+                                <nav>
+                                    <h2>Welcome</h2>
+                                    <h4>{name}</h4>
+                                    {isCustomer?(
+                                        <>
+                                            Hii Customer
+                                        </>
+                                    ):(
+                                        <>
+                                            Hii employee
+                                        </>
+                                    )}
+                                    <button onClick={handleLogout}>Logout</button>{/**This Button Log's the user out.*/ }
+                                </nav>
+                            </section>
                         </>
                     ):(
                         <>
-                            Hii employee
+                            <section className="hero">
+                                <nav>
+                                    <h2>Welcome</h2>
+                                    <h2>HomePage</h2>
+                                    <Link to="/login"><button>Login</button></Link>
+                                </nav>
+                            </section>
                         </>
                     )}
-                    <button onClick={handleLogout}>Logout</button>{/**This Button Log's the user out.*/ }
-                </nav>
-        </section>
+            </>
     )
 }
 
