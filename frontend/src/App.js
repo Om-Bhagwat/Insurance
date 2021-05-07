@@ -151,7 +151,7 @@ function App() {
          <Router>
            {/* Takes to homepage with Navbar. */}
               <Route path="/" exact render={(props)=>(
-                <Homepage {...props} user={user} handleLogout={handleLogout} name={name} isCustomer={isCustomer} isEmployee={isEmployee} />
+                <Homepage {...props} user={user} handleLogout={handleLogout} name={name} isCustomer={isCustomer} isEmployee={isEmployee} email={email} />
               )} />
               <Route path="/login" exact render={(props)=>(
                 <Login 
@@ -178,6 +178,7 @@ function App() {
                 setEmployee = {setEmployee}
                 />
               )} />
+              
         </Router>
   </div>
   );

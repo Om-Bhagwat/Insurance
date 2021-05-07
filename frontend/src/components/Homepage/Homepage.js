@@ -1,5 +1,10 @@
 import React from 'react';
+import CustomerHome from '../CustomerHome/CustomerHome';
+import EmployeeeHome from '../EmployeeHome/EmployeeHome';
+import NotLoggedIn from '../NotLoggedIn/NotLoggedIn';
 import {Link} from 'react-router-dom';
+
+import './Homepage.css';
 
 const Homepage=(props)=>{
 
@@ -11,8 +16,10 @@ const Homepage=(props)=>{
             handleLogout,
             name,
             isCustomer,
-            // isEmployee
+            isEmployee,
+            email
         } = props;
+
 
     return (
             <>
@@ -22,17 +29,19 @@ const Homepage=(props)=>{
                                 <nav>
                                     <h2>Welcome</h2>
                                     <h4>{name}</h4>
-                                    {isCustomer?(
-                                        <>
-                                            Hii Customer
-                                        </>
-                                    ):(
-                                        <>
-                                            Hii employee
-                                        </>
-                                    )}
                                     <button onClick={handleLogout}>Logout</button>{/**This Button Log's the user out.*/ }
                                 </nav>
+                                <div>
+                                    {isCustomer?(
+                                            <>
+                                                <CustomerHome {...props} name={name} email={email} />
+                                            </>
+                                        ):(
+                                            <>
+                                                <EmployeeeHome/>
+                                            </>
+                                        )}
+                                </div>
                             </section>
                         </>
                     ):(
@@ -43,6 +52,9 @@ const Homepage=(props)=>{
                                     <h2>HomePage</h2>
                                     <Link to="/login"><button>Login</button></Link>
                                 </nav>
+                                <div>
+                                    <NotLoggedIn/>
+                                </div>
                             </section>
                         </>
                     )}
