@@ -1,6 +1,7 @@
 /* eslint-disable default-case */
 import React,{useState,useEffect} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import axios from 'axios';
 import Login from './components/Login/Login.js';
 import fire from './Firebase/fire.js';
 import Homepage from './components/Homepage/Homepage.js';
@@ -38,7 +39,7 @@ function App() {
 
   //*Login function provided by the FireBase.
   //! Do not edit this function.(Ask me.! @Om-Bhagwat)
-  const handleLogin=()=>{
+  const handleLogin=async()=>{
     clearErrors();
       fire.auth()
       .signInWithEmailAndPassword(email,password)
@@ -56,12 +57,34 @@ function App() {
           }
       });
 
+      if(isCustomer){
+        try{
+              const resp = await axios.post('http://localhost:5000/users/getdetail',{
+                email
+              },);
+
+              console.log(resp);
+          }catch(error){
+              console.log(error);
+          }
+      }else{
+          try{
+              const resp = await axios.post('http://localhost:5000/users/getempdetail',{
+                email
+              },);
+
+              console.log(resp);
+          }catch(error){
+              console.log(error);
+          }
+      }
+
   }
 
 
   //*SignUp function here.
   //! Do not change this function.(Ask me !Om-Bhagwat)
-  const handleSignup=()=>{
+  const handleSignup=async()=>{
     clearErrors();
     fire.auth()
       .createUserWithEmailAndPassword(email,password)
@@ -77,6 +100,19 @@ function App() {
               break; 
           }
       });
+
+      try{
+          const response = await axios.post('http://localhost:5000/users/adduser',{
+              name,
+              email,
+              password,
+              ph_number
+
+          },);
+          console.log(response);
+      }catch(error){
+          console.log(error);
+      }
   }
 
   //! Logout Function do not change(Ask me !Om-Bhagwat)
@@ -97,6 +133,7 @@ function App() {
 
   useEffect(()=>{
     authListener();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   return (
