@@ -46,16 +46,17 @@ const Homepage=(props)=>{
                         </>
                     ):(
                         <>
-                            <section className="hero">
+                            {/* <section className="hero">
                                 <nav>
                                     <h2>Welcome</h2>
                                     <h2>HomePage</h2>
                                     <Link to="/login"><button>Login</button></Link>
                                 </nav>
-                                <div>
+                                
+                            </section> */}
+                            <div>
                                     <NotLoggedIn/>
-                                </div>
-                            </section>
+                            </div>
                         </>
                     )}
             </>
