@@ -1,19 +1,43 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import BarChart from '../Charts/BarChart';
 import PieChart from '../Charts/PieChart';
+import Chatbot from 'react-chatbot-kit';
 import Fade from 'react-reveal';
 // import Typist from 'react-typist';
 import './NotLoggedIn.css';
-
+import ActionProvider from '../ChatBot/ActionProvider';
+import MessageParser from '../ChatBot/MessageParser';
+import config from '../ChatBot/config';
 const NotLoggedIn=()=>{
 
-    
 
+    const[show,setShow] = useState(false);
+    
+    const showChat=()=>{
+        if(show){
+            setShow(false);
+        }else{
+            setShow(true);
+        }
+    }
     
     return (
         <div>
+            <div className="chat">
+                    <button onClick={showChat}>ChatBot</button>
+            </div>
+            {show?(
+                <>
+                    <div className="chatb">
+                        <Chatbot config={config} actionProvider={ActionProvider}  messageParser={MessageParser} />
+                    </div>
+                </>
+            ):(
+                <>
+                </>
+            )}
             <nav className="navbar navbar-light navbar-expand-md navigation-clean-button">
                 <div className="container"><a className="navbar-brand" href="#">InsureIt</a><button data-toggle="collapse" className="navbar-toggler" data-target="#navcol-1"><span className="sr-only">Toggle navigation</span><span className="navbar-toggler-icon"></span></button>
                     <div className="collapse navbar-collapse" id="navcol-1">
@@ -80,6 +104,9 @@ const NotLoggedIn=()=>{
                         </div>
                     </section>
                 </div>
+                <div className="ench">
+
+            </div>
             <div className="graphs">
                 <Fade left>
                     <div className="myCard">
@@ -89,6 +116,9 @@ const NotLoggedIn=()=>{
                             <PieChart/>
                     </div>
                 </Fade>
+            </div>
+            <div className="ench">
+
             </div>
             <footer className="footer-basic">
                 <div className="social"><a href="#"><i className="icon ion-social-instagram"></i></a><a href="#"><i className="icon ion-social-snapchat"></i></a><a href="#"><i className="icon ion-social-twitter"></i></a><a href="#"><i className="icon ion-social-facebook"></i></a></div>

@@ -43,9 +43,6 @@ const Login = (props)=> {
 
     return (
         <div>
-            <button onClick={PresentCustomer} style={{marginTop:"10px",width:"20%"}}>Customer</button>
-            <br></br>
-            <button onClick={Presentemployee} style={{marginTop:"10px",width:"20%"}}>Employee</button>
             <>
                     {isCustomer?(
                         <>
@@ -94,13 +91,15 @@ const Login = (props)=> {
                                         <div className="btnContainer">
                                             {hasAccount?(
                                                 <>
-                                                    <button onClick={handleLogin}><Link to="/">Sign up</Link></button>
-                                                    <p>Don't have an account ?<span onClick={()=>sethasAccount(!hasAccount)}>Sign up</span></p>
+                                                    <button onClick={handleLogin}><Link to="/">Sign In</Link></button>
+                                                    <p style={{textAlign:"center"}}>Don't have an account ?<span onClick={()=>sethasAccount(!hasAccount)}>Sign up</span></p>
+                                                    <p style={{textAlign:"center"}}>Are You An Employee?<span onClick={Presentemployee}>Sign in</span></p>
                                                 </>
                                             ):(
                                                 <>
                                                     <button onClick={handleSignup}><Link to="/">Sign Up</Link></button>
-                                                    <p>Have an Account ?<span onClick={()=>sethasAccount(!hasAccount)}>Sign in</span></p>
+                                                    <p style={{textAlign:"center"}}>Have an Account ?<span onClick={()=>sethasAccount(!hasAccount)}>Sign in</span></p>
+                                                    <p style={{textAlign:"center"}}>Are You An Employee?<span onClick={Presentemployee}>Sign in</span></p>
                                                 </>
                                             )}
                                         </div>
@@ -142,6 +141,7 @@ const Login = (props)=> {
                                     <p className="errorMsg">{passworderr}</p>
                                     <div className="btnContainer">
                                         <button onClick={handleLogin}><Link to="/">Sign in</Link></button>
+                                        <p style={{textAlign:"center"}}>Are You An Customer?<span onClick={PresentCustomer}>Sign in</span></p>
                                     </div>
                                 </div>
                             </section>

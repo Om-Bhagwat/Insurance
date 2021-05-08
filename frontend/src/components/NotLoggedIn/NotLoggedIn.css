@@ -1,3 +1,35 @@
+.chat{
+  position: fixed;
+  bottom:0;
+  right: 0;
+  margin:40px;
+  margin-bottom: 10px;
+  padding: 15px;
+  margin-right:70px;
+  z-index:2;
+}
+
+.chat button{
+  border-radius: 15px;
+  width:100px;
+}
+
+.chatb{
+  position: fixed;
+  bottom:0;
+  right:0;
+  padding: 20px;
+  margin: 10px;
+  margin-bottom: 60px;
+  z-index: 2;
+}
+
+.ench{
+  height: 20px;
+  width: 100vw;
+  background:radial-gradient(farthest-corner at 40px 40px, #629677 40%, #495d63 100%);;
+}
+
 .ok{
     height: 600px;
     background-image: url(./undraw_For_sale_re_egkk.svg);
